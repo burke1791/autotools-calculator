@@ -7,7 +7,7 @@
 # - name of the package
 # - version number
 # - email address for bug reports
-AC_INIT([calc], [1.0], [calc@example.com])
+AC_INIT([autocalc], [1.0], [calc@example.com])
 
 # Initializes automake with a list of options
 # Note: these options DO NOT affect the compiler's behavior, they only
@@ -28,6 +28,7 @@ AC_PROG_CC([gcc])
 # to this list (without the .am)
 AC_CONFIG_FILES([
   Makefile
+  src/calc/Makefile
 ])
 
 # This is a closing command that produces the part of the script that creates
