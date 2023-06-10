@@ -1,4 +1,7 @@
+#include <stdio.h>
 #include <stdlib.h>
+
+#define YYSTYPE CALCSTYPE
 
 #include "calc.tab.h"
 #include "calc.lex.h"
