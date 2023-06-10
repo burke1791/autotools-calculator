@@ -56,3 +56,5 @@ libtool
 
 **/.libs
 *.o
+
+.vscode

@@ -1,1 +1,1 @@
-SUBDIRS = src/calc
+SUBDIRS = src/reader src/calc
