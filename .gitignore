@@ -58,3 +58,6 @@ libtool
 *.o
 
 .vscode
+
+*.lo
+*.la
