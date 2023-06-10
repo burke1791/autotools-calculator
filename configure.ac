@@ -29,6 +29,7 @@ AC_PROG_CC([gcc])
 AC_CONFIG_FILES([
   Makefile
   src/calc/Makefile
+  src/reader/Makefile
 ])
 
 # This is a closing command that produces the part of the script that creates
