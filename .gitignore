@@ -55,3 +55,4 @@ Makefile
 libtool
 
 **/.libs
+*.o

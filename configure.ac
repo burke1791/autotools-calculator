@@ -28,7 +28,6 @@ AC_PROG_CC([gcc])
 # to this list (without the .am)
 AC_CONFIG_FILES([
   Makefile
-  src/Makefile
 ])
 
 # This is a closing command that produces the part of the script that creates
