@@ -1,6 +1,6 @@
 lib_LTLIBRARIES = libparser.la
 
-BUILD_SOURCES = calc.tab.h
+BUILT_SOURCES = gram.h
 
 libparser_la_SOURCES = \
       gram.y \

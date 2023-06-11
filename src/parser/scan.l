@@ -1,15 +1,13 @@
 
 %option noyywrap nounput noinput
 
-%option prefix="calc"
-
 %option reentrant bison-bridge
 
-%option header-file="calc.lex.h"
+%option header-file="scan.lex.h"
 
 %{
 
-#include "calc.tab.h"
+#include "gram.h"
 
 #define YY_EXIT_FAILURE ((void)yyscanner, EXIT_FAILURE)
 
@@ -19,9 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define YYSTYPE CALCSTYPE
-
-int calcerror(const char* msg);
+int yyerror(const char* msg);
 
 %}
 
@@ -46,7 +42,7 @@ EXP   ([Ee][-+]?[0-9]+)
 "//".*
 [ \t]   { /* ignore whitespace */ }
 
-.       { calcerror("Mystery character"); }
+.       { yyerror("Mystery character"); }
 
  
 %%

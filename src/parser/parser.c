@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define YYSTYPE CALCSTYPE
-
-#include "calc.tab.h"
-#include "calc.lex.h"
+#include "gram.h"
+#include "scan.lex.h"
 #include "ast.h"
+#include "parser.h"
 
 AST* parse_equation(char* eqn) {
   int i;
@@ -13,19 +12,19 @@ AST* parse_equation(char* eqn) {
   yyscan_t scanner;
   YY_BUFFER_STATE buf;
 
-  if ((i = calclex_init(&scanner)) != 0) exit(i);
+  if ((i = yylex_init(&scanner)) != 0) exit(i);
 
-  buf = calc_scan_string(eqn, scanner);
-  calc_switch_to_buffer(buf, scanner);
+  buf = yy_scan_string(eqn, scanner);
+  yy_switch_to_buffer(buf, scanner);
 
-  int e = calcparse(&t, scanner);
+  int e = yyparse(&t, scanner);
 
-  if (e == 0) {
-    printf("parse success\n");
+  if (e != 0) {
+    printf("parse error\n");
   }
 
-  calc_delete_buffer(buf, scanner);
-  calclex_destroy(scanner);
+  yy_delete_buffer(buf, scanner);
+  yylex_destroy(scanner);
 
   return (AST*)t;
 }

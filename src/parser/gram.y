@@ -2,8 +2,6 @@
 %define api.pure true
 %define parse.error verbose
 
-%define api.prefix {calc}
-
 %code top {
 
 #define _XOPEN_SOURCE 600
@@ -24,7 +22,7 @@
 #define YYNOMEM goto yyexhaustedlab
 #endif
 
-#include "../include/ast.h"
+#include "ast.h"
 
 }
 
@@ -37,8 +35,8 @@
 %param { void* scanner }
 
 %code {
-  int calcerror(void* foo, const char* msg, const void* s);
-  int calclex(void* lval, const void* s);
+  int yyerror(void* foo, const char* msg, const void* s);
+  int yylex(void* lval, const void* s);
 }
 
 %token <d> NUMBER
@@ -52,7 +50,6 @@
 
 calclist: /* nothing */
   | calclist exp EOL {
-      printf("top\n");
       *t = $$ = $2;
       return 0;
     }
@@ -79,7 +76,7 @@ term: NUMBER    { $$ = new_num($1); }
 
 %%
 
-int calcerror(void* yylval, const char* msg, const void* s) {
+int yyerror(void* yylval, const char* msg, const void* s) {
   (void)yylval;
   (void)s;
   return fprintf(stderr, "%s\n", msg);

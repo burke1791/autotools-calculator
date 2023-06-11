@@ -24,6 +24,8 @@ AC_CONFIG_MACRO_DIR([m4])
 # AC_PROG_CC
 # However, I want to use gcc in the project so I tell autoconf to set CC = gcc
 AC_PROG_CC([gcc])
+AC_PROG_YACC([bison])
+AC_PROG_LEX([flex])
 
 AM_PROG_AR
 
@@ -37,6 +39,8 @@ AC_CONFIG_FILES([
   Makefile
   src/calc/Makefile
   src/reader/Makefile
+  src/parser/Makefile
+  src/compute/Makefile
 ])
 
 # This is a closing command that produces the part of the script that creates

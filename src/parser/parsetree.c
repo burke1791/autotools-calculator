@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#define YYSTYPE CALCSTYPE
-
 #include "ast.h"
-#include "calc.tab.h"
-#include "calc.lex.h"
 
 Node* new_ast(NodeType type, Node* l, Node* r) {
   AST* a = malloc(sizeof(AST));
@@ -23,7 +19,6 @@ Node* new_ast(NodeType type, Node* l, Node* r) {
 }
 
 Node* new_num(double d) {
-  printf("new_num: %f\n", d);
   Num* n = malloc(sizeof(Num));
 
   if (!n) {
