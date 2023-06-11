@@ -12,7 +12,6 @@ Node* new_ast(NodeType type, Node* l, Node* r) {
   AST* a = malloc(sizeof(AST));
 
   if (!a) {
-    calcerror("out of space");
     exit(EXIT_FAILURE);
   }
 
@@ -24,10 +23,10 @@ Node* new_ast(NodeType type, Node* l, Node* r) {
 }
 
 Node* new_num(double d) {
+  printf("new_num: %f\n", d);
   Num* n = malloc(sizeof(Num));
 
   if (!n) {
-    calcerror("out of space");
     exit(EXIT_FAILURE);
   }
 
@@ -39,6 +38,12 @@ Node* new_num(double d) {
 
 void free_node(Node* n) {
   switch (n->type) {
+    case N_AST:
+      free_node(((AST*)n)->l);
+      free_node(((AST*)n)->r);
+      free(n);
+      break;
+
     case N_PLUS:
     case N_MINUS:
     case N_TIMES:

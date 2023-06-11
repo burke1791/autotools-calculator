@@ -1,13 +1,19 @@
+#include <stdio.h>
 
 #include "parser.h"
 
 int main() {
-  AST* t;
-  char* eqn = "33 + 36";
+  char* eqn = "33 + 36\n";
 
-  if (parse_equation(t, eqn) != 0) {
+  AST* t = parse_equation(eqn);
+
+  if (t == NULL) {
     printf("idk what went wrong...\n");
   }
+
+  printf("do the evaluation here\n");
+
+  free_node((Node*)t);
 
   return 0;
 }

@@ -7,10 +7,11 @@
 #include "calc.lex.h"
 #include "ast.h"
 
-int parse_equation(AST* t, char* eqn) {
+AST* parse_equation(char* eqn) {
   int i;
-  calcscan_t scanner;
-  CALC_BUFFER_STATE buf;
+  struct Node* t;
+  yyscan_t scanner;
+  YY_BUFFER_STATE buf;
 
   if ((i = calclex_init(&scanner)) != 0) exit(i);
 
@@ -20,11 +21,11 @@ int parse_equation(AST* t, char* eqn) {
   int e = calcparse(&t, scanner);
 
   if (e == 0) {
-    printf("parse success");
+    printf("parse success\n");
   }
 
   calc_delete_buffer(buf, scanner);
   calclex_destroy(scanner);
 
-  return EXIT_SUCCESS;
+  return (AST*)t;
 }

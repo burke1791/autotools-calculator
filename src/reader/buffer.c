@@ -21,8 +21,8 @@ void read_input(InputBuffer* buf) {
   }
 
   // Ignore trailing newline
-  buf->inputLen = bytes_read - 1;
-  buf->buf[bytes_read - 1] = 0;
+  // buf->inputLen = bytes_read - 1;
+  // buf->buf[bytes_read - 1] = 0;
 }
 
 void close_input_buffer(InputBuffer* buf) {

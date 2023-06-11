@@ -3,6 +3,6 @@
 
 #include "ast.h"
 
-int parse_equation(AST* t, char* eqn);
+AST* parse_equation(char* eqn);
 
 #endif /* PARSER_H */

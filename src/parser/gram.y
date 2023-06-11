@@ -24,7 +24,7 @@
 #define YYNOMEM goto yyexhaustedlab
 #endif
 
-#include "include/ast.h"
+#include "../include/ast.h"
 
 }
 
@@ -52,6 +52,7 @@
 
 calclist: /* nothing */
   | calclist exp EOL {
+      printf("top\n");
       *t = $$ = $2;
       return 0;
     }
