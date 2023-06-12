@@ -10,4 +10,4 @@ libparser_la_SOURCES = \
 
 AM_YFLAGS = -d
 
-AM_CFLAGS = -I$(srcdir)/include -I$(top_srcdir)/src/include
+AM_CFLAGS = -I$(top_srcdir)/src/include

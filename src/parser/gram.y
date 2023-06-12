@@ -22,7 +22,7 @@
 #define YYNOMEM goto yyexhaustedlab
 #endif
 
-#include "ast.h"
+#include "parser/ast.h"
 
 }
 

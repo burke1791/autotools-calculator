@@ -2,10 +2,10 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "buffer.h"
-#include "ast.h"
-#include "parser.h"
-#include "compute.h"
+#include "reader/buffer.h"
+#include "parser/ast.h"
+#include "parser/parser.h"
+#include "compute/compute.h"
 
 void print_prompt() {
   printf("autocalc > ");

@@ -3,8 +3,8 @@
 
 #include "gram.h"
 #include "scan.lex.h"
-#include "ast.h"
-#include "parser.h"
+#include "parser/ast.h"
+#include "parser/parser.h"
 
 AST* parse_equation(char* eqn) {
   int i;

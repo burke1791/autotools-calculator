@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "compute.h"
+#include "compute/compute.h"
 
 double compute(Node* t) {
   double v;  // calculated value of this subtree

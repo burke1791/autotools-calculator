@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "buffer.h"
+#include "reader/buffer.h"
 
 InputBuffer* new_input_buffer() {
   InputBuffer* buf = malloc(sizeof(InputBuffer));

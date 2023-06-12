@@ -24,8 +24,8 @@ AC_CONFIG_MACRO_DIR([m4])
 # AC_PROG_CC
 # However, I want to use gcc in the project so I tell autoconf to set CC = gcc
 AC_PROG_CC([gcc])
-AC_PROG_YACC([bison])
-AC_PROG_LEX([flex])
+AC_PROG_YACC
+AC_PROG_LEX
 
 AM_PROG_AR
 

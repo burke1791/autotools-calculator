@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "parser.h"
+#include "parser/parser.h"
 
 int main() {
   char* eqn = "33 + 36\n";

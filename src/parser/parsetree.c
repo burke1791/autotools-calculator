@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#include "ast.h"
+#include "parser/ast.h"
 
 Node* new_ast(NodeType type, Node* l, Node* r) {
   AST* a = malloc(sizeof(AST));
