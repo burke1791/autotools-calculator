@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 #include "reader/buffer.h"
+#include "mmgr/mempool.h"
 
 InputBuffer* new_input_buffer() {
-  InputBuffer* buf = malloc(sizeof(InputBuffer));
+  InputBuffer* buf = pool_alloc(sizeof(InputBuffer));
   buf->buf = NULL;
   buf->bufLen = 0;
   buf->inputLen = 0;
@@ -26,6 +27,6 @@ void read_input(InputBuffer* buf) {
 }
 
 void close_input_buffer(InputBuffer* buf) {
-  free(buf->buf);
-  free(buf);
+  pool_free(buf->buf);
+  pool_free(buf);
 }

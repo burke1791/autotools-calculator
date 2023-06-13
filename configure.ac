@@ -41,6 +41,7 @@ AC_CONFIG_FILES([
   src/reader/Makefile
   src/parser/Makefile
   src/compute/Makefile
+  src/mmgr/Makefile
 ])
 
 # This is a closing command that produces the part of the script that creates

@@ -3,9 +3,10 @@
 #include <stdarg.h>
 
 #include "parser/ast.h"
+#include "mmgr/mempool.h"
 
 Node* new_ast(NodeType type, Node* l, Node* r) {
-  AST* a = malloc(sizeof(AST));
+  AST* a = pool_alloc(sizeof(AST));
 
   if (!a) {
     exit(EXIT_FAILURE);
@@ -19,7 +20,7 @@ Node* new_ast(NodeType type, Node* l, Node* r) {
 }
 
 Node* new_num(double d) {
-  Num* n = malloc(sizeof(Num));
+  Num* n = pool_alloc(sizeof(Num));
 
   if (!n) {
     exit(EXIT_FAILURE);
@@ -36,7 +37,7 @@ void free_node(Node* n) {
     case N_AST:
       free_node(((AST*)n)->l);
       free_node(((AST*)n)->r);
-      free(n);
+      pool_free(n);
       break;
 
     case N_PLUS:
@@ -55,7 +56,7 @@ void free_node(Node* n) {
       free_node(((AST*)n)->l);
     
     case N_CONST:
-      free(n);
+      pool_free(n);
       break;
     
     default:
