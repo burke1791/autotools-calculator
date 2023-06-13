@@ -1,7 +1,7 @@
 #ifndef COMPUTE_H
 #define COMPUTE_H
 
-#include "ast.h"
+#include "parser/ast.h"
 
 double compute(Node* t);
 
