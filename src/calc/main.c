@@ -6,12 +6,16 @@
 #include "parser/ast.h"
 #include "parser/parser.h"
 #include "compute/compute.h"
+#include "mmgr/mempool.h"
+
+MemPool* p;
 
 void print_prompt() {
   printf("autocalc > ");
 }
 
 int main() {
+  p = pool_create(MIN_MEMPOOL_SIZE);
   printf("Too stupid to do mental math, eh?\n");
   InputBuffer* buf = new_input_buffer();
 
@@ -40,6 +44,7 @@ int main() {
   }
 
   close_input_buffer(buf);
+  pool_destroy(p);
 
   return 0;
 }

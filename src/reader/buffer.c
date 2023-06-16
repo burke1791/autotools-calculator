@@ -27,6 +27,9 @@ void read_input(InputBuffer* buf) {
 }
 
 void close_input_buffer(InputBuffer* buf) {
-  pool_free(buf->buf);
+  if (buf->buf != NULL) {
+    // this buffer is not allocated in our mempool, so we free like this
+    free(buf->buf);
+  }
   pool_free(buf);
 }

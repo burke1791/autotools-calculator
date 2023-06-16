@@ -32,11 +32,14 @@ static void* free_mem_chunk(MemChunk* c) {
 
 void pool_destroy(MemPool* pool) {
   MemChunk* chunk = pool->head;
+  int count = 0;
 
   while (chunk != NULL) {
+    count++;
     chunk = free_mem_chunk(chunk);
   }
 
+  printf("Unfreed pointers: %d\n", count);
   free(pool);
 }
 
